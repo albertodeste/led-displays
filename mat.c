@@ -175,6 +175,10 @@ void displayString(char * str, int size, int effect)
   {
     scrollRL(image, imageSize(str, size));
   }
+  else if (effect == 2)
+  {
+    displayFixed(image, imageSize(str, size), 0);
+  }
   else
   {
     //TODO display error (! on every display)
