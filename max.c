@@ -33,9 +33,9 @@ void microSleep(int microseconds)
 void sendBit(int value)
 {
   setCK(0);
-  microSleep(10);
+  microSleep(1);
   setDIN(value);
-  microSleep(10);
+  microSleep(1);
   setCK(1);
 }
 
@@ -45,7 +45,7 @@ void sendBits(int bits, int n)
   {
     sendBit(bits & 1);
     int newBits = bits >> 1;
-    microSleep(10);
+    microSleep(1);
     sendBits(newBits, n - 1);
   }
 }
@@ -60,9 +60,9 @@ int reverse(int number, int index)
 void sendCommand(int command, int data)
 {
   setCR(0);
-  microSleep(10);
+  microSleep(1);
   sendBits(reverse((command << 8) | data, 16), 16);
-  microSleep(10);
+  microSleep(1);
 }
 
 void initMax(int DIN, int CR, int CK)
@@ -85,7 +85,7 @@ void tearDownMax()
 void maxWrite()
 {
   setCR(0);
-  microSleep(10);
+  microSleep(1);
   setCR(1);
-  microSleep(10);
+  microSleep(1);
 }

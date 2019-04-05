@@ -3,6 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include "mat.h"
+#include <sys/resource.h>
 
 void checkArgs(int argc, char *argv[])
 {
@@ -29,6 +30,7 @@ int main(int argc, char *argv[])
     effect = 1;
   }
 
+  setpriority(PRIO_PROCESS, 0, -20);
   displayString(argv[5], strlen(argv[5]), effect);
 
   printf("--- DONE ---\n");

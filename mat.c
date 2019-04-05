@@ -129,9 +129,13 @@ void displayFixed(unsigned short int ** image, int size, int scroll)
     for (display = 0; display < DEVICES_NUMBER; display++)
     {
       command(COMMANDS_DIGIT[i], bitsToInt(image[i], display * 8 + scroll, size));
+      //for (res = DEVICES_NUMBER - 1; res > 0; res--) {
+//	      command(COMMAND_NOOP, 0);
+//      }
+//      maxWrite();
     }
     maxWrite();
-    microSleep(2000);
+    microSleep(2500);
   }
 }
 
